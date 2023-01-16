@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       store,
-      apiUrl: 'https://api.themoviedb.org/3/movie',
+      apiUrl: 'https://api.themoviedb.org/3/search/movie',
       apiKey: '608d618b027efbcefdc264f920beae3a',
       queryString: 'Harry',
 
@@ -28,9 +28,10 @@ export default {
       })
         .then((response) => {
           console.log(response);
+
         })
         .catch(function (error) {
-          console.log(error);
+          console.warn(error);
         });
 
     }
