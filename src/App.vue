@@ -11,14 +11,15 @@ export default {
   data() {
     return {
       store,
-      apiUrl: 'https://api.themoviedb.org/3/search/movie',
+      apiUrlMovie: 'https://api.themoviedb.org/3/search/movie',
+      apiUrlTvSeries: 'https://api.themoviedb.org/3/search/tv',
       apiKey: '608d618b027efbcefdc264f920beae3a',
     }
   },
 
   methods: {
     getMovies() {
-      axios.get(this.apiUrl, {
+      axios.get(this.apiUrlMovie, {
         params: {
           api_key: this.apiKey,
           query: this.store.searchText,
@@ -27,6 +28,23 @@ export default {
         .then((response) => {
           console.log(response.data.results);
           this.store.movies = response.data.results;
+        })
+        .catch(function (error) {
+          console.warn(error);
+        });
+
+    },
+
+    getTvSeries() {
+      axios.get(this.apiUrlTvSeries, {
+        params: {
+          api_key: this.apiKey,
+          query: this.store.searchText,
+        }
+      })
+        .then((response) => {
+          console.log(response.data.results);
+          this.store.tvSeries = response.data.results;
         })
         .catch(function (error) {
           console.warn(error);
@@ -41,7 +59,7 @@ export default {
 </script>
 
 <template>
-  <HeaderComponent @search="getMovies" />
+  <HeaderComponent @searchMovie="getMovies" @searchTvSerie="getTvSeries" />
 </template>
 
 <style lang="scss">
