@@ -18,9 +18,10 @@ export default {
     <h1>Header</h1>
     <label class="me-2" for="searchbar">Cerca</label>
     <input type="text" name="" id="searchbar" v-model="store.searchText">
-    <button class="btn btn-danger ms-2" @keyup.enter="$emit('search')">Cerca</button>
+    <p>{{ store.searchText }}</p>
+    <button class="btn btn-danger ms-2" @click="$emit('search')">click</button>
     <ul>
-      <li v-for="movie in store.movies" key="movie.id" class="mb-5">
+      <li v-for="movie in store.movies" :key="movie.id" class="mb-5">
         <h3>{{ movie.title }}</h3>
         <h4>{{ movie.original_title }}</h4>
         <p>Lingua {{ movie.original_language }} Voto: {{ movie.vote_average }}</p>
