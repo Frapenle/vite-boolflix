@@ -17,9 +17,9 @@ export default {
   <header>
     <h1>Header</h1>
     <label class="me-2" for="searchbar">Cerca</label>
-    <input type="text" name="" id="searchbar" v-model="store.searchText">
-    <p>{{ store.searchText }}</p>
-    <button class="btn btn-danger ms-2" @click="$emit('search')">click</button>
+    <input type="text" name="" placeholder="Inserire titolo" id="searchbar" v-model="store.searchText"
+      @keyup.enter="$emit('search')">
+    <button class="btn btn-danger ms-2" @click="$emit('search')">Cerca</button>
     <ul>
       <li v-for="movie in store.movies" :key="movie.id" class="mb-5">
         <h3>{{ movie.title }}</h3>
