@@ -19,7 +19,7 @@ export default {
     <label class="me-2" for="searchbar">Cerca</label>
     <input type="text" name="" placeholder="Inserire titolo" id="searchbar" v-model="store.searchText"
       @keyup.enter="$emit('search')">
-    <button class="btn btn-danger ms-2" @click="$emit('searchTvSerie')">Cerca</button>
+    <button class="btn btn-danger ms-2" @click="$emit('search')">Cerca</button>
     <ul>
       <li>
         <h2>Film</h2>
@@ -35,7 +35,7 @@ export default {
       <li>
         <h2>Serie TV</h2>
       </li>
-      <li v-for="serie in store.tvSeries"> {{ serie }}</li>
+      <li v-for="serie in store.tvSeries"> {{ serie.name }}</li>
     </ul>
 
   </header>
