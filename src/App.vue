@@ -21,7 +21,7 @@ export default {
       axios.get(this.apiUrl, {
         params: {
           api_key: this.apiKey,
-          query: store.searchText,
+          query: this.store.searchText,
         }
       })
         .then((response) => {
