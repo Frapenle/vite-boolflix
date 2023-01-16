@@ -6,6 +6,8 @@ export default {
   data() {
     return {
       store,
+      coverPath: 'https://image.tmdb.org/t/p/',
+      coverDimension: 'w342',
 
     }
   },
@@ -25,6 +27,7 @@ export default {
         <h2>Film</h2>
       </li>
       <li v-for="movie in store.movies" :key="movie.id" class="mb-5">
+        <img :src="`${coverPath}${coverDimension}${movie.poster_path}`" :alt="movie.name">
         <h3>{{ movie.title }}</h3>
         <h4>{{ movie.original_title }}</h4>
         <p>Lingua {{ movie.original_language }} Voto: {{ movie.vote_average }}</p>
