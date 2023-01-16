@@ -50,6 +50,10 @@ export default {
           console.warn(error);
         });
 
+    },
+    searchMoviesAndSeries() {
+      this.getMovies();
+      this.getTvSeries();
     }
   },
 
@@ -59,7 +63,7 @@ export default {
 </script>
 
 <template>
-  <HeaderComponent @searchMovie="getMovies" @searchTvSerie="getTvSeries" />
+  <HeaderComponent @search="searchMoviesAndSeries" />
 </template>
 
 <style lang="scss">
