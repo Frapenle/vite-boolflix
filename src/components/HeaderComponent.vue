@@ -35,7 +35,11 @@ export default {
       <li>
         <h2>Serie TV</h2>
       </li>
-      <li v-for="serie in store.tvSeries"> {{ serie.name }}</li>
+      <li v-for="serie in store.tvSeries" :key="serie.id">
+        <h3>{{ serie.name }}</h3>
+        <h4>{{ serie.original_name }} </h4>
+        <p>Lingua {{ serie.original_language }} Voto: {{ serie.vote_average }}</p>
+      </li>
     </ul>
 
   </header>
