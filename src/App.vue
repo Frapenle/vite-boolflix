@@ -13,8 +13,6 @@ export default {
       store,
       apiUrl: 'https://api.themoviedb.org/3/search/movie',
       apiKey: '608d618b027efbcefdc264f920beae3a',
-      queryString: 'Harry',
-
     }
   },
 
@@ -23,12 +21,12 @@ export default {
       axios.get(this.apiUrl, {
         params: {
           api_key: this.apiKey,
-          query: this.queryString,
+          query: store.searchText,
         }
       })
         .then((response) => {
-          console.log(response);
-
+          console.log(response.data.results);
+          this.store.movies = response.data.results;
         })
         .catch(function (error) {
           console.warn(error);
@@ -44,7 +42,7 @@ export default {
 </script>
 
 <template>
-  <HeaderComponent />
+  <HeaderComponent @search="getMovies" />
 </template>
 
 <style lang="scss">
