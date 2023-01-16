@@ -1,8 +1,11 @@
 <script>
+import { store } from "../store";
+
 export default {
   name: 'HeaderComponent',
   data() {
     return {
+      store,
 
     }
   },
@@ -13,6 +16,7 @@ export default {
 <template>
   <header>
     <h1>Header</h1>
+
   </header>
 </template>
 
