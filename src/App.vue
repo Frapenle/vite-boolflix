@@ -14,6 +14,7 @@ export default {
       apiUrlMovie: 'https://api.themoviedb.org/3/search/movie',
       apiUrlTvSeries: 'https://api.themoviedb.org/3/search/tv',
       apiKey: '608d618b027efbcefdc264f920beae3a',
+      languageDefault: 'it-IT'
     }
   },
 
@@ -23,6 +24,7 @@ export default {
         params: {
           api_key: this.apiKey,
           query: this.store.searchText,
+          language: this.languageDefault,
         }
       })
         .then((response) => {
