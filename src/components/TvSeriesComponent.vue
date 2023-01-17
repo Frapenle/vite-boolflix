@@ -65,6 +65,10 @@ ul {
     width: 100%;
 }
 
+.language>img {
+    width: 30px;
+}
+
 .img-wrapper {}
 
 img {}
