@@ -1,11 +1,16 @@
 <script>
 import { store } from "./store.js";
 import HeaderComponent from './components/HeaderComponent.vue';
+import MovieComponent from './components/MovieComponent.vue';
+import TvSeriesComponent from './components/TvSeriesComponent.vue';
+
 import axios from 'axios';
 
 export default {
   components: {
     HeaderComponent,
+    MovieComponent,
+    TvSeriesComponent,
   },
 
   data() {
@@ -66,6 +71,8 @@ export default {
 
 <template>
   <HeaderComponent @search="searchMoviesAndSeries" />
+  <MovieComponent />
+  <TvSeriesComponent />
 </template>
 
 <style lang="scss">
