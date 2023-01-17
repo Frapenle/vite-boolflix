@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     <h5 v-if="serie.name != serie.original_name">{{ serie.name }}</h5>
-                    <h6 v-else>{{ serie.original_name }} </h6>
+                    <h5 v-else>{{ serie.original_name }} </h5>
                     <div class="language">Lingua:
                         <img v-if="langFlags.includes(serie.original_language)" :src="getImagePath(serie.original_language)">
                         <span v-else>{{ serie.original_language }}</span>
@@ -68,8 +68,4 @@ ul {
 .language>img {
     width: 30px;
 }
-
-.img-wrapper {}
-
-img {}
 </style>

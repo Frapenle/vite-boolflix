@@ -9,8 +9,8 @@
 
                 </div>
                 <div class="card-body">
-                    <h5 v-if="movie.title != movie.original_title">{{ movie.title }}</h5>
-                    <h6 v-else>{{ movie.original_title }}</h6>
+                    <h5 v-if="movie.title != movie.original_title">{{ movie.title }}</h4>
+                    <h5 v-else>{{ movie.original_title }}</h5>
                     <div class="language">Lingua:
                         <img v-if="langFlags.includes(movie.original_language)" :src="getImagePath(movie.original_language)">
                         <span v-else>{{ movie.original_language }}</span>
@@ -68,6 +68,4 @@ ul {
 .language>img {
     width: 30px;
 }
-
-img {}
 </style>
