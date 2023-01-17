@@ -51,14 +51,33 @@ export default {
 @use "../styles/partials/variables.scss" as *;
 @use "bootstrap/scss/bootstrap.scss" as *;
 
-ul {
+ul.items-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: .2rem;
 }
 
 .card {
-    width: calc(100% / 5 - 1rem);
+    width: calc(100% / 5 - .2rem);
+    position: relative;
+    cursor: pointer;
+    transition: transform 500ms;
+}
+
+ul:focus-within .card,
+ul:hover .card {
+    transform: translateX(-10%);
+}
+
+.card:focus~.card,
+.card:hover~.card {
+    transform: translateX(10%);
+}
+
+ul .card:focus,
+ul .card:hover {
+    transform: scale(1.2);
+    z-index: 1;
 }
 
 .card-img-top {
