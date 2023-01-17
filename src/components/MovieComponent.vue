@@ -5,12 +5,12 @@
             <li v-for="movie in store.movies" :key="movie.id" class="mb-5 card">
                 <div class="img-wrapper">
                     <img v-if="movie.poster_path != null" :src="`${coverPath}${coverDimension}${movie.poster_path}`" :alt="movie.title" class="card-img-top">
-                    <img v-else src="http://www.tecno-store.it/wp-content/uploads/immagine-non-disponibile-q.png" alt="" class="fakeimg">
+                    <img v-else src="http://www.tecno-store.it/wp-content/uploads/immagine-non-disponibile-q.png" :alt="movie.title" class="fakeimg card-img-top">
 
                 </div>
                 <div class="card-body">
-                    <h5 v-if="movie.title != movie.original_title">{{ movie.title }}</h5>
-                    <h5 v-else>{{ movie.original_title }}</h5>
+                    <h6 v-if="movie.title != movie.original_title">{{ movie.title }}</h6>
+                    <h6 v-else>{{ movie.original_title }}</h6>
                     <div class="language">Lingua:
                         <img v-if="langFlags.includes(movie.original_language)" :src="getImagePath(movie.original_language)">
                         <span v-else>{{ movie.original_language }}</span>
@@ -59,6 +59,11 @@ ul {
 
 .card {
     width: calc(100% / 5 - 1rem);
+}
+
+.card-img-top {
+    height: 25vw;
+    object-fit: cover;
 }
 
 .fakeimg {
