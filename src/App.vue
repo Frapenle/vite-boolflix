@@ -1,6 +1,7 @@
 <script>
 import { store } from "./store.js";
 import HeaderComponent from './components/HeaderComponent.vue';
+import MainComponent from "./components/MainComponent.vue";
 import MovieComponent from './components/MovieComponent.vue';
 import TvSeriesComponent from './components/TvSeriesComponent.vue';
 
@@ -9,6 +10,7 @@ import axios from 'axios';
 export default {
   components: {
     HeaderComponent,
+    MainComponent,
     MovieComponent,
     TvSeriesComponent,
   },
@@ -70,13 +72,16 @@ export default {
 </script>
 
 <template>
-  <HeaderComponent @search="searchMoviesAndSeries" />
-  <MovieComponent />
-  <TvSeriesComponent />
+  <HeaderComponent class="header position-fixed" @search="searchMoviesAndSeries" />
+  <MainComponent />
 </template>
 
 <style lang="scss">
 @use "./styles/general.scss" as *;
 @use "./styles/partials/variables.scss" as *;
 @use "bootstrap/scss/bootstrap.scss" as *;
+
+.header {
+  z-index: 2;
+}
 </style>
