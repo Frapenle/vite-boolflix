@@ -146,6 +146,6 @@ export default {
 }
 
 .language>img {
-    width: 30px;
+    width: 20px;
 }
 </style>
