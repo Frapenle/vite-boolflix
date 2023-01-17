@@ -4,35 +4,17 @@
         <ul class="items-container">
             <li v-for="serie in store.tvSeries" :key="serie.id" class="mb-5 card">
                 <div class="img-wrapper">
-                    <img v-if="serie.poster_path != null" :src="`${coverPath}${coverDimension}${serie.poster_path}`" :alt="serie.name" class="card-img-top cover-img">
-                    <img v-else src="http://www.tecno-store.it/wp-content/uploads/immagine-non-disponibile-q.png" :alt="serie.name" class="fakeimg card-img-top">
-
-                </div>
-                <div class="hover">
-                    <div class="title">
-                        <p v-if="serie.name != serie.original_name"><span>Titolo: </span>{{ serie.name }}</p>
-                        <p v-else><span>Titolo: </span> {{ serie.original_name }}</p>
-                    </div>
-                    <div class="overview">
-                        <p><span>Overview: </span>{{ serie.overview }}</p>
-                    </div>
-                    <div class="language"><span>Lingua: </span>
-                        <img v-if="langFlags.includes(serie.original_language)" :src="getImagePath(serie.original_language)">
-                        <span v-else>{{ serie.original_language }}</span>
-                    </div>
-                    <div class="ratings"><span>Voto: </span>
-                        <font-awesome-icon icon="fa-solid fa-star" v-for="star in Math.floor(serie.vote_average / 2)"/>
-                        <font-awesome-icon icon="fa-regular fa-star" v-for="blank_star in Math.ceil(5 - (serie.vote_average / 2))"/>
-                    </div>
+                    <img v-if="serie.poster_path != null" :src="`${coverPath}${coverDimension}${serie.poster_path}`" :alt="serie.name" class="card-img-top">
+                    <img v-else src="http://www.tecno-store.it/wp-content/uploads/immagine-non-disponibile-q.png" :alt="serie.name" class="fakeimg">
 
                 </div>
                 <div class="card-body">
                     <h6 v-if="serie.name != serie.original_name">{{ serie.name }}</h6>
                     <h6 v-else>{{ serie.original_name }} </h6>
-                    <!-- <div class="language">Lingua:
+                    <div class="language">Lingua:
                         <img v-if="langFlags.includes(serie.original_language)" :src="getImagePath(serie.original_language)">
                         <span v-else>{{ serie.original_language }}</span>
-                    </div> -->
+                    </div>
                     <div class="ratings">
                         <font-awesome-icon icon="fa-solid fa-star" v-for="star in Math.floor(serie.vote_average / 2)"/>
                         <font-awesome-icon icon="fa-regular fa-star" v-for="blank_star in Math.ceil(5 - (serie.vote_average / 2))"/>
@@ -70,58 +52,14 @@ export default {
 @use "../styles/partials/variables.scss" as *;
 @use "bootstrap/scss/bootstrap.scss" as *;
 
+ul {
+    display: flex;
+}
 
 .items-container {
     display: flex;
     flex-wrap: wrap;
     gap: .2rem;
-}
-
-.img-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.img-wrapper>.cover-img {
-    opacity: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-}
-
-.hover {
-    height: 100%;
-    padding: 1rem .5rem;
-    padding: 1rem .5rem;
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    p {
-        font-size: .9rem;
-    }
-
-    span {
-        font-weight: bold;
-    }
-}
-
-.overview {
-    height: 70%;
-    overflow-y: auto;
-}
-
-
-.img-wrapper:hover .cover-img {
-    opacity: 0.2;
-}
-
-.img-wrapper:hover .hover {
-    opacity: 1;
 }
 
 .card {
@@ -131,9 +69,19 @@ export default {
     transition: transform 500ms;
 }
 
+ul:focus-within .card,
+ul:hover .card {
+    transform: translateX(-10%);
+}
+
+.card:focus~.card,
+.card:hover~.card {
+    transform: translateX(10%);
+}
+
 ul .card:focus,
 ul .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     z-index: 1;
 }
 
