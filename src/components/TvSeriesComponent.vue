@@ -11,8 +11,8 @@
                     <h6>{{ serie.original_name }} </h6>
                     <p>Lingua {{ serie.original_language }}</p>
                     <div class="ratings">
-                        <font-awesome-icon icon="fa-solid fa-star" v-for="star in Math.floor(movie.vote_average / 2)"/>
-                        <font-awesome-icon icon="fa-regular fa-star" v-for="blank_star in Math.ceil(5 - (movie.vote_average / 2))"/>
+                        <font-awesome-icon icon="fa-solid fa-star" v-for="star in Math.floor(serie.vote_average / 2)"/>
+                        <font-awesome-icon icon="fa-regular fa-star" v-for="blank_star in Math.ceil(5 - (serie.vote_average / 2))"/>
                     </div>
                 </div>
             </li>
