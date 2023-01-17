@@ -50,6 +50,4 @@ header {
     width: 100%;
   }
 }
-
-.search {}
 </style>

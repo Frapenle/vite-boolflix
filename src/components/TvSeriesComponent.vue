@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="films">
+    <section v-if="store.tvSeries != false" class="films">
         <h3>Serie TV</h3>
         <ul>
             <li v-for="serie in store.tvSeries" :key="serie.id" class="mb-5 card">
@@ -23,6 +23,7 @@
             </li>
         </ul>
     </section>
+    <p v-else>Nessun risultato per la tua ricerca nelle serie TV</p>
 </template>
 <script>
 import { store } from "../store";
