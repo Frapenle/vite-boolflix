@@ -4,10 +4,13 @@
         <ul class="items-container">
             <li v-for="movie in store.movies" :key="movie.id" class="mb-5 card">
                 <div class="img-wrapper">
-                    <img v-if="movie.poster_path != null" :src="`${coverPath}${coverDimension}${movie.poster_path}`" :alt="movie.title" class="card-img-top">
+                    <img v-if="movie.poster_path != null" :src="`${coverPath}${coverDimension}${movie.poster_path}`" :alt="movie.title" class="cover-img card-img-top">
                     <img v-else src="http://www.tecno-store.it/wp-content/uploads/immagine-non-disponibile-q.png" :alt="movie.title" class="fakeimg card-img-top">
-
+                    <div class="hover">
+                        <div class="text">John Doe</div>
+                    </div>
                 </div>
+                
                 <div class="card-body">
                     <h6 v-if="movie.title != movie.original_title">{{ movie.title }}</h6>
                     <h6 v-else>{{ movie.original_title }}</h6>
@@ -52,10 +55,43 @@ export default {
 @use "../styles/partials/variables.scss" as *;
 @use "bootstrap/scss/bootstrap.scss" as *;
 
-ul.items-container {
+.items-container {
     display: flex;
     flex-wrap: wrap;
     gap: .2rem;
+}
+
+.img-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.img-wrapper>.cover-img {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.hover {
+    padding: 1rem .5rem;
+    padding: 1rem .5rem;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.img-wrapper:hover .cover-img {
+    opacity: 0.3;
+}
+
+.img-wrapper:hover .hover {
+    opacity: 1;
 }
 
 .card {
@@ -65,19 +101,9 @@ ul.items-container {
     transition: transform 500ms;
 }
 
-ul:focus-within .card,
-ul:hover .card {
-    transform: translateX(-10%);
-}
-
-.card:focus~.card,
-.card:hover~.card {
-    transform: translateX(10%);
-}
-
-ul .card:focus,
-ul .card:hover {
-    transform: scale(1.2);
+.card:focus,
+.card:hover {
+    transform: scale(1.1);
     z-index: 1;
 }
 
