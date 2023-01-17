@@ -4,7 +4,7 @@
         <ul>
             <li v-for="movie in store.movies" :key="movie.id" class="mb-5 card">
                 <div class="img-wrapper">
-                    <img v-if="serie.poster_path != null" :src="`${coverPath}${coverDimension}${movie.poster_path}`" :alt="movie.title" class="card-img-top">
+                    <img v-if="movie.poster_path != null" :src="`${coverPath}${coverDimension}${movie.poster_path}`" :alt="movie.title" class="card-img-top">
                     <img v-else src="http://www.tecno-store.it/wp-content/uploads/immagine-non-disponibile-q.png" alt="" class="fakeimg">
 
                 </div>
