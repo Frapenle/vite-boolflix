@@ -4,6 +4,7 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from "./components/MainComponent.vue";
 import MovieComponent from './components/MovieComponent.vue';
 import TvSeriesComponent from './components/TvSeriesComponent.vue';
+import CArdComponent from './components/CardComponent.vue'
 
 import axios from 'axios';
 
@@ -13,6 +14,8 @@ export default {
     MainComponent,
     MovieComponent,
     TvSeriesComponent,
+    CArdComponent,
+
   },
 
   data() {
